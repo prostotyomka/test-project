@@ -18,9 +18,8 @@ browser.find_element(By.NAME,'object_value').send_keys(12)
 browser.find_element(By.ID,'i-save').click()
 
 len_1 = browser.find_elements(By.CLASS_NAME,'mb-4.object-item')
-button = browser.find_element(By.XPATH,'/html/body/div/div[2]/table/tbody/tr/td[4]/button[2]')
+button = browser.find_element(By.CSS_SELECTOR,'[data-qa="list-item-delete"]')
 actioncains = ActionChains(browser)
 actioncains.move_to_element(len_1[0]).move_to_element(button).click().perform()
 alert = browser.switch_to.alert
 alert.accept()
-

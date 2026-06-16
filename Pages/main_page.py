@@ -9,6 +9,7 @@ class MainPage(BasePage):
     selector_class_quot = (By.CLASS_NAME, 'mb-4.object-item')
     selector_button_del = (By.CSS_SELECTOR, '[data-qa="list-item-delete"]')
     selector_list_quot = (By.CLASS_NAME, 'mb-4.object-item')
+    check = []
 
     def int_quota_button_and_click(self, ):
         """Находит и кликает на кнопку создания квоты"""
@@ -29,13 +30,36 @@ class MainPage(BasePage):
         self.alert = self.browser.switch_to.alert
         self.alert.accept()
 
-    def checks_the_name(self, num: int, check: str):
-        """Проверяет совпадает-ли имя """
-        name = self.finds(self.selector_list_quot)[num]
-        name_text = name.find_element(By.CLASS_NAME, "item-name").text
-        assert name_text == check
+    #def checks_the_name(self, num: int, check: str):
+        #"""Проверяет совпадает-ли имя """
+        #name = self.finds(self.selector_list_quot)[num]
+        #name_text = name.find_element(By.CLASS_NAME, "item-name").text
+        #assert name_text == check
 
-    def checks_the_value(self, num: int, check: int):
-        """Проверяет совпадает-ли значение """
-        value = int(self.finds(self.selector_list_quot)[num].find_element(By.CLASS_NAME, "item-value").text)
-        assert value == check
+    #def checks_the_value(self, num: int, check: int):
+        #"""Проверяет совпадает-ли значение """
+        #value = self.finds(self.selector_list_quot)[num]
+        #value_text = int(value.find_element(By.CLASS_NAME, "item-value").text)
+        #assert value_text == check
+
+    def saves_the_name_and_value(self, num: int):
+        """Сохраняет имя и значение кворты"""
+        quot = self.finds(self.selector_list_quot)[num]
+        name = quot.find_element(By.CLASS_NAME, "item-name").text
+        value = quot.find_element(By.CLASS_NAME, "item-value").text
+        return self.check.extend([name, int(value)])
+
+    def checking_name_and_value(self, num: int, check_name: str, check_value: int):
+        """Проверка на идентичность"""
+        self.saves_the_name_and_value(num)
+        neme,value = self.check
+        assert neme == check_name and value == check_value
+        self.check = []
+
+    def checking_for_changes(self):
+        """Проверка изменения квоты"""
+        assert self.check[0] != self.check[1]
+        self.check =[]
+
+    def cecking_del_quot(self,num:int):
+        assert self.finds(self.selector_list_quot) == []

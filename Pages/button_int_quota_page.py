@@ -8,6 +8,7 @@ class ButtonIntQuota(BasePage):
     selector_button_save = (By.ID, 'i-save')
 
 
+
     def entering_into_a_line_name(self, name: str):
         """Водит имя в поле имени"""
         self.find(self.selector_name_input).send_keys(name)
@@ -27,5 +28,7 @@ class ButtonIntQuota(BasePage):
     def clear_input_value(self):
         """Очищает строку ввода значения"""
         self.find(self.selector_value_input).clear()
+
+
 
 

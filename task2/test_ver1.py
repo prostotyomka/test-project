@@ -26,7 +26,7 @@ class TestQuots(unittest.TestCase):
         self.main_page.num_quota_and_click(0)
         self.button_qota.clear_input_name()
         self.button_qota.clear_input_value()
-        self.button_qota.entering_into_a_line_name('')
+        self.button_qota.entering_into_a_line_name('B')
         self.button_qota.entering_into_a_line_value(120)
         self.button_qota.button_save_click()
 

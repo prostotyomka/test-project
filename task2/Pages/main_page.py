@@ -45,4 +45,5 @@ class MainPage(BasePage):
 
 
     def cecking_del_quot(self,num:int):
+        """Проверяет удалена-ли квота"""
         assert self.finds(self.selector_list_quot) == []

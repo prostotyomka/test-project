@@ -29,7 +29,7 @@ class TestQuots(unittest.TestCase):
         self.button_qota.entering_into_a_line_name('B')
         self.button_qota.entering_into_a_line_value(120)
         self.button_qota.button_save_click()
-
+        """Проверки"""
         self.main_page.checks_the_name(0,"B")
         self.main_page.checks_the_value(0,120)
 
@@ -37,4 +37,5 @@ class TestQuots(unittest.TestCase):
 
         self.main_page.click_button_del(0)
         self.main_page.alert()
+        """Проверка"""
         self.main_page.cecking_del_quot(0)

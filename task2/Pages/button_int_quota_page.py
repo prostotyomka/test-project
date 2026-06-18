@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Pages.base_page import BasePage
+from task2.Pages.base_page import BasePage
 
 
 class ButtonIntQuota(BasePage):

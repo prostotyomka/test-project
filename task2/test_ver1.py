@@ -17,25 +17,25 @@ class TestQuots(unittest.TestCase):
         self.button_qota.entering_into_a_line_value(10)
         self.button_qota.button_save_click()
         """Проверки"""
-        #self.main_page.checks_the_name(0,"A")
-        #self.main_page.checks_the_value(0,10)
-        self.main_page.checking_name_and_value(0,"A", 10)
+        self.main_page.checks_the_name(0,"A")
+        self.main_page.checks_the_value(0,10)
+
 
     def test2(self):
-        self.main_page.saves_the_name_and_value(0)
 
         self.main_page.num_quota_and_click(0)
         self.button_qota.clear_input_name()
         self.button_qota.clear_input_value()
-        self.button_qota.entering_into_a_line_name('ASd')
+        self.button_qota.entering_into_a_line_name('B')
         self.button_qota.entering_into_a_line_value(120)
         self.button_qota.button_save_click()
-
-        self.main_page.saves_the_name_and_value(0)
-        self.main_page.checking_for_changes()
+        """Проверки"""
+        self.main_page.checks_the_name(0,"B")
+        self.main_page.checks_the_value(0,120)
 
     def test3(self):
 
         self.main_page.click_button_del(0)
         self.main_page.alert()
+        """Проверка"""
         self.main_page.cecking_del_quot(0)

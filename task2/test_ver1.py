@@ -37,5 +37,5 @@ class TestQuots(unittest.TestCase):
 
         self.main_page.click_button_del(0)
         self.main_page.alert()
-        """Проверка"""
+        """Проверкаа"""
         self.main_page.cecking_del_quot(0)
